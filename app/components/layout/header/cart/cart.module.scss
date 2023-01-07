@@ -1,0 +1,26 @@
+.cart {
+  @apply z-10 flex justify-center items-center gap-2 max-w-fit ml-8 lg:max-w-full lg:ml-0;
+
+  span {
+    @apply hidden lg:flex;
+    transform: scale(0.75);
+  }
+
+  > button {
+    @apply relative hidden lg:block;
+
+    &::after {
+      content: "";
+      @apply w-0 h-0.5 absolute left-0 bottom-1 bg-green-origin transition-all duration-300 delay-75;
+    }
+
+    &:hover::after,
+    &:focus::after {
+      @apply w-full;
+    }
+
+    p {
+      @apply uppercase tracking-basic font-[500] text-lg hidden lg:block;
+    }
+  }
+}

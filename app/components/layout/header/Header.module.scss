@@ -1,0 +1,15 @@
+.header {
+  @apply flex w-full items-center justify-between;
+
+  & > div:first-of-type {
+    @apply w-1/2;
+  }
+
+  & > div:last-of-type {
+    @apply flex justify-end;
+  }
+
+  & > div:not(:first-of-type) {
+    @apply flex-1;
+  }
+}

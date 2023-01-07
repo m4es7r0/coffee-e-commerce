@@ -1,0 +1,26 @@
+.item {
+  @apply bg-green-light rounded-xl p-4 flex gap-4 text-black font-[500] text-[.9rem];
+
+  .item-body {
+    @apply flex flex-col justify-between w-full;
+
+    > div:last-child {
+      @apply flex justify-between items-center w-full;
+
+      > div:last-child {
+        @apply w-[124px] p-2;
+
+        input {
+          @apply min-w-[20px];
+        }
+      }
+    }
+  }
+
+  .price {
+    @apply text-lg;
+  }
+
+  &.name {
+  }
+}

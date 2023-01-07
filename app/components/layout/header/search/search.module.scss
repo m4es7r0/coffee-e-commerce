@@ -1,0 +1,18 @@
+.search {
+  @apply relative;
+
+  > div {
+    @apply relative;
+  }
+
+  &::before {
+    @apply bg-green-light rounded-full absolute;
+    z-index: 0;
+    content: "";
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -40%);
+    width: calc(100vh / 1);
+    height: calc(100vh / 1);
+  }
+}

@@ -1,0 +1,9 @@
+.layout {
+  > main {
+    @apply bg-white pt-8 px-10;
+
+    > .content {
+      @apply relative;
+    }
+  }
+}
