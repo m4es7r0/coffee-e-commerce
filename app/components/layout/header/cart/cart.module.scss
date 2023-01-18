@@ -24,3 +24,7 @@
     }
   }
 }
+
+.cart_epmty {
+  @apply self-center text-center text-lg uppercase tracking-widest font-medium bg-green-light py-4 w-full rounded-xl;
+}

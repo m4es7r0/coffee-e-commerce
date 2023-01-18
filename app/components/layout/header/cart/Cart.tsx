@@ -7,6 +7,7 @@ import {
   getTotalPriceSelector,
 } from "@/store/slices/cart.slice";
 
+import clsx from "clsx";
 import styles from "./cart.module.scss";
 
 import {
@@ -98,18 +99,22 @@ const Cart: FC = () => {
           <DrawerHeader>Basket</DrawerHeader>
 
           <DrawerBody className="flex flex-col gap-4">
-            {cart.map((cart) => (
-              <CartItem item={cart} key={cart.id} />
-            ))}
+            {totalPrice ? (
+              cart.map((cart) => <CartItem item={cart} key={cart.id} />)
+            ) : (
+              <p className={styles.cart_epmty}>add some items</p>
+            )}
           </DrawerBody>
 
-          <DrawerFooter justifyContent="space-between">
-            <b>{`Total Price: ${new Intl.NumberFormat("en-IN", {
-              style: "currency",
-              currency: "USD",
-            }).format(totalPrice)}`}</b>
-            <Button colorScheme="green">Checkout</Button>
-          </DrawerFooter>
+          {!!totalPrice && (
+            <DrawerFooter justifyContent="space-between">
+              <b>{`Total Price: ${new Intl.NumberFormat("en-IN", {
+                style: "currency",
+                currency: "USD",
+              }).format(totalPrice)}`}</b>
+              <Button colorScheme="green">Checkout</Button>
+            </DrawerFooter>
+          )}
         </DrawerContent>
       </Drawer>
     </div>
