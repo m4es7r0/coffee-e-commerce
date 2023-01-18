@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FC } from "react";
 
 import { useAppActions } from "@/hooks/useRedux";
+import { formatCurrency } from "@/utils/formatCurrency";
 
 import { CloseButton } from "@chakra-ui/react";
 import CartActions from "./cart-actions/CartActions";
@@ -41,10 +42,7 @@ const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
         </div>
         <div>
           <div className={styles.price}>
-            {new Intl.NumberFormat("en-IN", {
-              style: "currency",
-              currency: "USD",
-            }).format(item.product.price)}
+            {formatCurrency(item.product.price)}
           </div>
           <CartActions item={item} />
         </div>

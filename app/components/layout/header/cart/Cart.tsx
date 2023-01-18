@@ -1,6 +1,8 @@
 import { FC, useEffect, useRef } from "react";
 import CartItem from "./cart-item/CartItem";
 
+import { formatCurrency } from "@/utils/formatCurrency";
+
 import { useAppActions, useAppSelector } from "@/hooks/useRedux";
 import {
   getCartSelector,
@@ -108,10 +110,7 @@ const Cart: FC = () => {
 
           {!!totalPrice && (
             <DrawerFooter justifyContent="space-between">
-              <b>{`Total Price: ${new Intl.NumberFormat("en-IN", {
-                style: "currency",
-                currency: "USD",
-              }).format(totalPrice)}`}</b>
+              <b>{`Total Price: ${formatCurrency(totalPrice)}`}</b>
               <Button colorScheme="green">Checkout</Button>
             </DrawerFooter>
           )}
