@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { ICartItem } from "../../types/cart";
-
 import { cart } from "../../data/cart.data";
-import { RootState } from "../store";
+
+import type { ICartItem } from "../../types/cart";
+import type { RootState } from "../store";
+import type { IChangeItemAmount } from "../types";
 
 interface ICartState {
   cart: ICartItem[];
@@ -19,24 +20,23 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {},
-    removeFromCart: (state, action) => {
-      state.cart = state.cart.filter((item) => item.id !== action.payload);
+    removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
+      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
 
       // total price
-      state.totalPrice = state.cart.reduce((acc, curr) => {
-        return acc + curr.product.price * curr.amount;
-      }, 0);
+      state.totalPrice = state.cart.reduce(
+        (acc, curr) => acc + curr.product.price * curr.amount,
+        0
+      );
     },
     getTotalPrice: (state) => {
-      state.totalPrice = state.cart.reduce((acc, curr) => {
-        return acc + curr.product.price * curr.amount;
-      }, 0);
+      state.totalPrice = state.cart.reduce(
+        (acc, curr) => acc + curr.product.price * curr.amount,
+        0
+      );
     },
-    setItemAmount: (
-      state,
-      action: PayloadAction<{ type: "plus" | "minus"; id: number }>
-    ) => {
-      switch (action.payload.type) {
+    setItemAmount: (state, action: PayloadAction<IChangeItemAmount>) => {
+      switch (action.payload.operation) {
         case "plus":
           state.cart.map((el) => {
             if (el.id === action.payload.id) {
@@ -52,13 +52,14 @@ const cartSlice = createSlice({
           });
           break;
         default:
-          () => {};
+          throw new Error(`wrong action type: ${action.type}`);
       }
 
       // total price
-      state.totalPrice = state.cart.reduce((acc, curr) => {
-        return acc + curr.product.price * curr.amount;
-      }, 0);
+      state.totalPrice = state.cart.reduce(
+        (acc, curr) => acc + curr.product.price * curr.amount,
+        0
+      );
     },
   },
 });

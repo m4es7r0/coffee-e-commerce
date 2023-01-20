@@ -50,7 +50,7 @@ const Cart: FC = () => {
         <Tag
           variant="subtle"
           borderRadius="full"
-          backgroundColor="#008f65"
+          backgroundColor="#f23c3d"
           color={"white"}
           fontWeight={"bold"}
         >
@@ -91,8 +91,8 @@ const Cart: FC = () => {
         isOpen={isOpen}
         onClose={onClose}
         finalFocusRef={btnRef}
-        placement="right"
         preserveScrollBarGap
+        blockScrollOnMount
         size="sm"
       >
         <DrawerOverlay />

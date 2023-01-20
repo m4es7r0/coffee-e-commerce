@@ -28,7 +28,7 @@ const LogicSection: FC<{ item: ICartItem }> = ({ item }) => {
             color="#222"
             aria-label="minus"
             icon={<Icon as={AiOutlineMinus} />}
-            onClick={() => setItemAmount({ type: "minus", id: item.id })}
+            onClick={() => setItemAmount({ operation: "minus", id: item.id })}
           />
         }
       />
@@ -51,7 +51,7 @@ const LogicSection: FC<{ item: ICartItem }> = ({ item }) => {
             color="#222"
             aria-label="plus"
             icon={<Icon as={AiOutlinePlus} />}
-            onClick={() => setItemAmount({ type: "plus", id: item.id })}
+            onClick={() => setItemAmount({ operation: "plus", id: item.id })}
           />
         }
       />

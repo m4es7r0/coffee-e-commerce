@@ -10,7 +10,11 @@ import CartActions from "./cart-actions/CartActions";
 
 import styles from "./cart-item.module.scss";
 
-const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
+interface CartItemProps {
+  item: ICartItem;
+}
+
+const CartItem: FC<CartItemProps> = ({ item }) => {
   const { removeFromCart } = useAppActions();
 
   return (
@@ -22,14 +26,14 @@ const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
         alt={item.product.name}
       />
       <div className={styles["item-body"]}>
-        <div className="flex w-full">
+        <div className="flex justify-between w-full">
           <div className={styles.name}>{item.product.name}</div>
           <CloseButton
             onClick={() => removeFromCart(item.id)}
             aria-label="remove item"
             size="sm"
             color="rgba(242, 60, 61, 0.4)"
-            border={"1px"}
+            border="1px"
             borderRadius="8px"
             borderColor="rgba(242, 60, 61, 0.4)"
             _active={{ opacity: 0.5 }}
