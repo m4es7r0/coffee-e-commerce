@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FC } from "react";
 import MenuItem from "./menu-item/MenuItem";
 
-import { menu } from "./menu.data";
+import { menu } from "@/data/menu.data";
 
 import styles from "./menu.module.scss";
 
