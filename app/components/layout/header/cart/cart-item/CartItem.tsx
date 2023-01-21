@@ -29,7 +29,7 @@ const CartItem: FC<CartItemProps> = ({ item }) => {
         <div className="flex justify-between w-full">
           <div className={styles.name}>{item.product.name}</div>
           <CloseButton
-            onClick={() => removeFromCart(item.id)}
+            onClick={() => removeFromCart({ id: item.id })}
             aria-label="remove item"
             size="sm"
             color="rgba(242, 60, 61, 0.4)"

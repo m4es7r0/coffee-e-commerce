@@ -7,10 +7,7 @@ const Home: FC = () => {
     <Layout>
       <main className="hero flex h-screen w-full items-center justify-center">
         <h1 className="text-center text-7xl font-bold text-green">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ex sed
-          voluptates, consequuntur neque dolor cum asperiores cupiditate
-          mollitia odio error totam ipsum voluptatibus fugiat molestiae! Veniam
-          ullam explicabo maxime.
+          Lorem ipsum
         </h1>
       </main>
     </Layout>
