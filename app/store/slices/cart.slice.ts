@@ -15,25 +15,26 @@ const initialState: ICartState = {
   totalPrice: 0,
 };
 
+const calcTotalPrice = (state: ICartState) => {
+  state.totalPrice = state.cart.reduce(
+    (acc, curr) => acc + curr.product.price * curr.amount,
+    0
+  );
+};
+
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
+    getTotalPrice: (state) => {
+      calcTotalPrice(state);
+    },
     addToCart: (state, action) => {},
     removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload.id);
 
       // total price
-      state.totalPrice = state.cart.reduce(
-        (acc, curr) => acc + curr.product.price * curr.amount,
-        0
-      );
-    },
-    getTotalPrice: (state) => {
-      state.totalPrice = state.cart.reduce(
-        (acc, curr) => acc + curr.product.price * curr.amount,
-        0
-      );
+      calcTotalPrice(state);
     },
     setItemAmount: (state, action: PayloadAction<IChangeItemAmount>) => {
       switch (action.payload.operation) {
@@ -56,10 +57,7 @@ const cartSlice = createSlice({
       }
 
       // total price
-      state.totalPrice = state.cart.reduce(
-        (acc, curr) => acc + curr.product.price * curr.amount,
-        0
-      );
+      calcTotalPrice(state);
     },
   },
 });
