@@ -49,9 +49,6 @@ dependencies:
   react-redux:
     specifier: ^8.1.1
     version: 8.1.1(@types/react-dom@18.0.10)(@types/react@18.0.26)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1)
-  react-remove-scroll-bar:
-    specifier: ^2.3.4
-    version: 2.3.4(@types/react@18.0.26)(react@18.2.0)
   typescript:
     specifier: 4.9.4
     version: 4.9.4
