@@ -1,6 +1,6 @@
 .layout {
   > main {
-    @apply bg-white pt-8 px-10;
+    @apply bg-white pt-8 px-10 min-h-screen;
 
     > .content {
       @apply relative;

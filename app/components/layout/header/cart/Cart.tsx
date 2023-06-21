@@ -1,15 +1,11 @@
-import { FC, useEffect, useRef } from "react";
+import { FC, useRef } from "react";
+
 import CartItem from "./cart-item/CartItem";
+
+import { useAppSelector } from "@/hooks/useRedux";
 
 import { formatCurrency } from "@/utils/formatCurrency";
 
-import { useAppActions, useAppSelector } from "@/hooks/useRedux";
-import {
-  getCartSelector,
-  getTotalPriceSelector,
-} from "@/store/slices/cart.slice";
-
-import clsx from "clsx";
 import styles from "./cart.module.scss";
 
 import {
@@ -30,15 +26,8 @@ import {
 import { IoBag, IoBagOutline } from "react-icons/io5";
 
 const Cart: FC = () => {
-  const { getTotalPrice } = useAppActions();
-
-  useEffect(() => {
-    getTotalPrice();
-  }, []);
-
   // Cart info logic
-  const cart = useAppSelector(getCartSelector);
-  const totalPrice = useAppSelector(getTotalPriceSelector);
+  const { cart, totalPrice } = useAppSelector((store) => store.cart);
 
   // Drawer logic
   const btnRef = useRef(null);

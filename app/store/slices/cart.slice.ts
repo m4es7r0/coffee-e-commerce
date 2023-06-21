@@ -10,16 +10,16 @@ interface ICartState {
   totalPrice: number;
 }
 
-const initialState: ICartState = {
-  cart,
-  totalPrice: 0,
-};
-
 const calcTotalPrice = (state: ICartState) => {
   state.totalPrice = state.cart.reduce(
     (acc, curr) => acc + curr.product.price * curr.amount,
     0
   );
+};
+
+const initialState: ICartState = {
+  cart,
+  totalPrice: cart.reduce((acc, curr) => acc + curr.product.price * curr.amount, 0)
 };
 
 const cartSlice = createSlice({
