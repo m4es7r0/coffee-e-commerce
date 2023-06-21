@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { cart } from "../../data/cart.data";
+// import { cart } from "../../data/cart.data";
 
 import type { ICartItem } from "../../types/cart";
-import type { RootState } from "../store";
+import { type RootState } from "../store";
 import type { IChangeItemAmount } from "../types";
 
 interface ICartState {
@@ -18,8 +18,8 @@ const calcTotalPrice = (state: ICartState) => {
 };
 
 const initialState: ICartState = {
-  cart,
-  totalPrice: cart.reduce((acc, curr) => acc + curr.product.price * curr.amount, 0)
+  cart: [],
+  totalPrice: 0
 };
 
 const cartSlice = createSlice({
