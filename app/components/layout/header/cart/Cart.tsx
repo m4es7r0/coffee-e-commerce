@@ -43,8 +43,7 @@ const Cart: FC = () => {
           color={"white"}
           fontWeight={"bold"}
         >
-          {cart.length > 0 &&
-            cart.reduce((acc: number, curr) => acc + curr.amount, 0)}
+          {cart.length > 0 && cart.reduce((acc, curr) => acc + curr.amount, 0)}
         </Tag>
       )}
       <Button variant="unstyled" onClick={onOpen}>
