@@ -26,7 +26,12 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action) => {},
+    addToCart: (state, action: PayloadAction<Omit<ICartItem, 'id'>>) => {
+      state.cart.push({...action.payload, id: state.cart.length++})
+
+      // total price
+      calcTotalPrice(state);
+    },
     removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
       state.cart = state.cart.filter((item) => item.id !== action.payload.id);
 
