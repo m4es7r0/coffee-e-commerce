@@ -14,10 +14,10 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
         <link rel="icon" href="/starbucks.svg" />
       </Head>
       <div className={styles.layout}>
-        <main>
+        <div>
           <Header />
           <section className={styles.content}>{children}</section>
-        </main>
+        </div>
       </div>
     </>
   );

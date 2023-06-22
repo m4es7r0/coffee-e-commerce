@@ -1,15 +1,12 @@
 import { FC } from "react";
 
 import Layout from "@/layout/Layout";
+import Catalog from "@/ui/catalog/Catalog";
 
 const Home: FC = () => {
   return (
     <Layout>
-      <main className="hero flex h-screen w-full items-center justify-center">
-        <h1 className="text-center text-7xl font-bold text-green">
-          Lorem ipsum
-        </h1>
-      </main>
+      <Catalog />
     </Layout>
   );
 };

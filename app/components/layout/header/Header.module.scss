@@ -1,5 +1,5 @@
 .header {
-  @apply flex w-full items-center justify-between;
+  @apply flex w-full items-center gap-5;
 
   & > div:first-of-type {
     @apply w-1/2;
