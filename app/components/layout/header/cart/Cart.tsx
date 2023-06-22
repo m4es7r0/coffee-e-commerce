@@ -92,7 +92,7 @@ const Cart: FC = () => {
             {totalPrice ? (
               cart.map((cart) => <CartItem item={cart} key={cart.id} />)
             ) : (
-              <p className={styles.cart_epmty}>add some items</p>
+              <p className={styles.cart_epmty}>add some stuff</p>
             )}
           </DrawerBody>
 

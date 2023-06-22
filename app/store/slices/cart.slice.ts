@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-// import { cart } from "../../data/cart.data";
+import { cart } from "../../data/cart.data";
 
 import type { ICartItem } from "../../types/cart";
 import { type RootState } from "../store";
@@ -26,8 +26,16 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<Omit<ICartItem, 'id'>>) => {
-      state.cart.push({...action.payload, id: state.cart.length++})
+    addToCart: (state, action: PayloadAction<ICartItem>) => {
+      if(state.cart.some(item => item.id === action.payload.id)) {
+        state.cart.map((item) => {
+          if (item.id === action.payload.id) {
+            item.amount++
+          }
+        })
+      } else {
+        state.cart.push({...action.payload, id: action.payload.id})
+      }
 
       // total price
       calcTotalPrice(state);

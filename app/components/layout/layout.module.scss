@@ -1,9 +1,9 @@
 .layout {
   > div {
-    @apply bg-white pt-8 px-10 min-h-screen;
+    @apply bg-white p-8 min-h-screen flex flex-col;
 
     > .content {
-      @apply relative;
+      @apply relative flex-grow flex justify-center items-center;
     }
   }
 }
