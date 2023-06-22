@@ -1,28 +1,28 @@
 .item {
-  @apply transition-all bg-[#ebe9e5] flex flex-col justify-between items-center gap-3 rounded-2xl p-5 px-10;
+  @apply transition-all shadow-sm bg-[#eae9e5] flex flex-col justify-between items-center gap-3 rounded-2xl p-5 px-10;
 
   & > img {
     @apply transition-none -mb-6 -mt-24;
   }
 
   .heading {
-    @apply text-[#9d9993] text-lg font-semibold leading-6 line-clamp-2;
+    @apply text-[#a19a8e] text-lg font-bold leading-6 line-clamp-2;
   }
   .description {
-    @apply self-start text-[#9d9993] opacity-70 text-xs leading-4;
+    @apply self-start text-[#b7ae9f] font-medium opacity-90 text-xs leading-4;
   }
   .button {
     @apply hidden;
   }
 
   &.active {
-    @apply bg-green gap-5 transition-none;
+    @apply bg-green gap-5 transition-none shadow-xl shadow-[rgba(0,_0,_0,_.3)];
     background-image: linear-gradient(
-        rgba(0, 143, 101, 0.8),
-        rgba(0, 96, 67, 1)
+        rgba(0, 122, 88, 0.91),
+        rgba(0, 122, 88, 1)
       ),
       url("/bg-paternjpg.jpg");
-    background-size: 60%;
+    background-size: contain;
     background-position: center;
 
     & > img {
@@ -30,10 +30,10 @@
     }
 
     .heading {
-      @apply text-white text-xl;
+      @apply text-white text-2xl line-clamp-3;
     }
     .description {
-      @apply text-base text-white;
+      @apply text-sm text-white;
     }
     .button {
       @apply flex w-10/12 bg-white rounded-full uppercase tracking-widest text-sm
