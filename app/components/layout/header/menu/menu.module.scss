@@ -1,5 +1,5 @@
 .menu {
-  @apply flex items-center gap-8  z-10;
+  @apply flex items-center gap-8 z-10 max-sm:hidden;
 
   > nav {
     > ul {
@@ -19,6 +19,19 @@
           }
         }
       }
+    }
+  }
+}
+
+.mobile_menu {
+  @apply sm:hidden z-10;
+
+  & > button {
+    @apply flex justify-center items-center;
+    margin: 0 !important;
+
+    & > svg {
+      @apply h-8 w-8;
     }
   }
 }
