@@ -9,6 +9,7 @@ import { ICartItem } from "@/types/cart";
 import { useAppActions, useAppSelector } from "@/hooks/useRedux";
 import { cn } from "@/utils/cn";
 import styles from "./CarouselItem.module.scss";
+import CarouselItemVariation from "./CarouselItemVariation";
 
 interface CarouselItemProps {
   item: ICartItem;
@@ -16,20 +17,17 @@ interface CarouselItemProps {
 
 const CarouselItem: FC<CarouselItemProps> = ({ item }) => {
   const { product } = item;
+
   const [isActive, setIsActive] = useState(false);
 
-  const {
-    catalog: { activeItem },
-    cart: { cart },
-  } = useAppSelector((store) => store);
+  const { activeItem } = useAppSelector((store) => store.catalog);
 
   const { setActiveItem, addToCart, setItemAmount } = useAppActions();
 
-  useEffect(() => {});
-
   useEffect(() => {
-    if (!activeItem && product.id === 2) {
+    if (!activeItem && item.id === 2) {
       setIsActive(true);
+      setActiveItem(item.id === 2 ? item : null);
     }
 
     if (activeItem) {
@@ -43,7 +41,9 @@ const CarouselItem: FC<CarouselItemProps> = ({ item }) => {
         [styles.active]: isActive,
       })}
       onClick={() => {
-        setActiveItem(product);
+        if (activeItem!.id !== item.id) {
+          setActiveItem(product);
+        }
       }}
     >
       <Image
@@ -56,11 +56,16 @@ const CarouselItem: FC<CarouselItemProps> = ({ item }) => {
       <div className={styles.heading}>
         <h2 title={product.name}>{product.name}</h2>
       </div>
-      <div className={styles.description}>{product.description}</div>
+      <div className={styles.description}>
+        {isActive ? <CarouselItemVariation /> : `${product.description}`}
+      </div>
       <Button
         className={styles.button}
         variant="unstyled"
-        onClick={() => addToCart(item)}
+        onClick={(e) => {
+          e.stopPropagation();
+          if (activeItem) addToCart(activeItem);
+        }}
       >
         Add to basket
       </Button>

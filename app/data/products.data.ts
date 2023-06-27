@@ -6,8 +6,8 @@ export const products: IProduct[] = [
     name: "Matcha Crème Frappuccino® Blended Beverage",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at enim blandit dui vulputate auctor.",
+    variant: "M",
     price: 9,
-    reviews: [],
     images: [
       "/images/products/Matcha-Creme-Frappuccino.webp",
       "/images/products/Matcha-Creme-Frappuccino.webp",
@@ -19,8 +19,8 @@ export const products: IProduct[] = [
     name: "Mocha Cookie Crumble Frappuccino®",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at enim blandit dui vulputate auctor.",
+    variant: "M",
     price: 9,
-    reviews: [],
     images: [
       "/images/products/Mocha-Cookie-Crumble-Frappuccino.webp",
       "/images/products/Mocha-Cookie-Crumble-Frappuccino.webp",
@@ -32,8 +32,8 @@ export const products: IProduct[] = [
     name: "Peppermint Mocha Crème Frappuccino® Blended Beverage",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at enim blandit dui vulputate auctor.",
+    variant: "M",
     price: 9,
-    reviews: [],
     images: [
       "/images/products/Peppermint-Mocha-Creme-Frappuccino.webp",
       "/images/products/Peppermint-Mocha-Creme-Frappuccino.webp",
@@ -45,8 +45,8 @@ export const products: IProduct[] = [
     name: "Pistachio Frappuccino® Blended Beverage",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at enim blandit dui vulputate auctor.",
+    variant: "M",
     price: 9,
-    reviews: [],
     images: [
       "/images/products/Pistachio-Frappuccino.webp",
       "/images/products/Pistachio-Frappuccino.webp",
@@ -58,8 +58,8 @@ export const products: IProduct[] = [
     name: "White Chocolate Mocha Frappuccino® Blended Beverage",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at enim blandit dui vulputate auctor.",
+    variant: "M",
     price: 9,
-    reviews: [],
     images: [
       "/images/products/White-Chocolate-Mocha-Frappuccino.webp",
       "/images/products/White-Chocolate-Mocha-Frappuccino.webp",
@@ -71,8 +71,8 @@ export const products: IProduct[] = [
     name: "White Chocolate Crème Frappuccino® Blended Beverage",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at enim blandit dui vulputate auctor.",
+    variant: "M",
     price: 9,
-    reviews: [],
     images: [
       "/images/products/White-Chocolate.webp",
       "/images/products/White-Chocolate.webp",

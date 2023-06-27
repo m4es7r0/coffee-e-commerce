@@ -9,7 +9,22 @@
     @apply text-[#a19a8e] text-lg font-bold leading-6 line-clamp-2;
   }
   .description {
-    @apply self-start text-[#b7ae9f] font-medium opacity-90 text-xs leading-4;
+    @apply flex-1 w-full self-start text-[#b7ae9f] font-medium opacity-90 text-xs leading-4;
+  }
+  .variation {
+    @apply flex justify-between items-center;
+
+    & span {
+      @apply text-2xl font-bold text-green-dark;
+    }
+
+    & div {
+      @apply flex gap-1;
+
+      > button {
+        @apply hover:-translate-y-0.5 active:scale-95;
+      }
+    }
   }
   .button {
     @apply hidden;
@@ -33,7 +48,7 @@
       @apply text-white text-2xl line-clamp-3;
     }
     .description {
-      @apply text-sm text-white;
+      @apply text-sm text-white opacity-100;
     }
     .button {
       @apply flex w-10/12 bg-white rounded-full uppercase tracking-widest text-sm

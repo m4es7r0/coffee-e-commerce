@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+import { type IProduct } from "@/types/product";
 import { type RootState } from "../store";
 
-import type { ICartItem } from "../../types/cart";
-
 interface ICartState {
-  activeItem: ICartItem | null
+  activeItem: IProduct | null
 }
 
 const initialState: ICartState = {
@@ -17,6 +17,11 @@ const catalogSlice = createSlice({
   reducers: {
     setActiveItem: (state, action) => {
       state.activeItem = action.payload
+    },
+    setActiveItemVariant: (state, action) => {
+      if (state.activeItem) {
+        state.activeItem.variant = action.payload
+      }
     }
   },
 });

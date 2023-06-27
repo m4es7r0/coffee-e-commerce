@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { cart } from "../../data/cart.data";
 
+import { IProduct } from "@/types/product";
 import type { ICartItem } from "../../types/cart";
 import { type RootState } from "../store";
 import type { IChangeItemAmount } from "../types";
@@ -26,15 +27,15 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<ICartItem>) => {
-      if(state.cart.some(item => item.id === action.payload.id)) {
+    addToCart: (state, {payload}: PayloadAction<IProduct>) => {
+      if(state.cart.some(item => item.product.id === payload.id && item.product.variant === payload.variant)) {
         state.cart.map((item) => {
-          if (item.id === action.payload.id) {
+          if (item.product.id === payload.id && item.product.variant === payload.variant) {
             item.amount++
           }
         })
       } else {
-        state.cart.push({...action.payload, id: action.payload.id})
+        state.cart.push({ id: state.cart.length, amount: 1, product: {...payload}})
       }
 
       // total price

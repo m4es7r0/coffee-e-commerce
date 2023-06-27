@@ -2,8 +2,7 @@ export interface IProduct {
   id: number;
   name: string;
   description: string;
+  variant: "S" | "M" | "L";
   price: number;
-  /*TODO: add review interface*/
-  reviews: [];
   images: string[];
 }
