@@ -3,13 +3,13 @@ import { FC, useEffect, useState } from "react";
 import Image from "next/image";
 
 import { Button } from "@chakra-ui/react";
-
-import { ICartItem } from "@/types/cart";
+import CarouselItemVariation from "./CarouselItemVariation";
 
 import { useAppActions, useAppSelector } from "@/hooks/useRedux";
+import { ICartItem } from "@/types/cart";
+
 import { cn } from "@/utils/cn";
 import styles from "./CarouselItem.module.scss";
-import CarouselItemVariation from "./CarouselItemVariation";
 
 interface CarouselItemProps {
   item: ICartItem;
